@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>图算法学习笔记</title>
+  <meta name="description" content="图算法学习笔记" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="图算法学习笔记" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="图算法学习笔记" />
+  
+  
+  
+
+<meta name="author" content="高文欣" />
+
+
+<meta name="date" content="2023-07-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#图算法"><i class="fa fa-check"></i><b>1</b> 图算法</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#基本定义"><i class="fa fa-check"></i><b>1.1</b> 基本定义</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path=""><a href="#有向边和无向边有向图与无向图"><i class="fa fa-check"></i><b>1.1.1</b> 有向边和无向边、有向图与无向图</a></li>
+<li class="chapter" data-level="1.1.2" data-path=""><a href="#简单图"><i class="fa fa-check"></i><b>1.1.2</b> 简单图</a></li>
+<li class="chapter" data-level="1.1.3" data-path=""><a href="#邻接依附"><i class="fa fa-check"></i><b>1.1.3</b> 邻接、依附</a></li>
+<li class="chapter" data-level="1.1.4" data-path=""><a href="#完全图"><i class="fa fa-check"></i><b>1.1.4</b> 完全图</a></li>
+<li class="chapter" data-level="1.1.5" data-path=""><a href="#稀疏图与稠密图"><i class="fa fa-check"></i><b>1.1.5</b> 稀疏图与稠密图</a></li>
+<li class="chapter" data-level="1.1.6" data-path=""><a href="#顶点的度"><i class="fa fa-check"></i><b>1.1.6</b> 顶点的度</a></li>
+<li class="chapter" data-level="1.1.7" data-path=""><a href="#权图与网图"><i class="fa fa-check"></i><b>1.1.7</b> 权图与网图</a></li>
+<li class="chapter" data-level="1.1.8" data-path=""><a href="#路径路径长度"><i class="fa fa-check"></i><b>1.1.8</b> 路径、路径长度</a></li>
+<li class="chapter" data-level="1.1.9" data-path=""><a href="#连通图连通分量"><i class="fa fa-check"></i><b>1.1.9</b> 连通图、连通分量</a></li>
+<li class="chapter" data-level="1.1.10" data-path=""><a href="#生成树生成森林"><i class="fa fa-check"></i><b>1.1.10</b> 生成树、生成森林</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#经典图嵌入方法"><i class="fa fa-check"></i><b>1.2</b> 经典图嵌入方法</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#deepwalk-2014"><i class="fa fa-check"></i><b>1.2.1</b> deepwalk-2014</a></li>
+<li class="chapter" data-level="1.2.2" data-path=""><a href="#node2vec-2016"><i class="fa fa-check"></i><b>1.2.2</b> node2vec-2016</a></li>
+<li class="chapter" data-level="1.2.3" data-path=""><a href="#sdne"><i class="fa fa-check"></i><b>1.2.3</b> SDNE</a></li>
+<li class="chapter" data-level="1.2.4" data-path=""><a href="#line"><i class="fa fa-check"></i><b>1.2.4</b> LINE</a></li>
+<li class="chapter" data-level="1.2.5" data-path=""><a href="#pagerank"><i class="fa fa-check"></i><b>1.2.5</b> pagerank</a></li>
+<li class="chapter" data-level="1.2.6" data-path=""><a href="#struc2vec"><i class="fa fa-check"></i><b>1.2.6</b> struc2vec</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#图神经网络算法"><i class="fa fa-check"></i><b>1.3</b> 图神经网络算法</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path=""><a href="#gcn"><i class="fa fa-check"></i><b>1.3.1</b> GCN</a></li>
+<li class="chapter" data-level="1.3.2" data-path=""><a href="#graphsage"><i class="fa fa-check"></i><b>1.3.2</b> graphSAGE</a></li>
+<li class="chapter" data-level="1.3.3" data-path=""><a href="#gat"><i class="fa fa-check"></i><b>1.3.3</b> GAT</a></li>
+<li class="chapter" data-level="1.3.4" data-path=""><a href="#han"><i class="fa fa-check"></i><b>1.3.4</b> HAN</a></li>
+<li class="chapter" data-level="1.3.5" data-path=""><a href="#gtn"><i class="fa fa-check"></i><b>1.3.5</b> GTN</a></li>
+<li class="chapter" data-level="1.3.6" data-path=""><a href="#meatpath2vec"><i class="fa fa-check"></i><b>1.3.6</b> meatpath2vec</a></li>
+<li class="chapter" data-level="1.3.7" data-path=""><a href="#gatne"><i class="fa fa-check"></i><b>1.3.7</b> GATNE</a></li>
+<li class="chapter" data-level="1.3.8" data-path=""><a href="#bine"><i class="fa fa-check"></i><b>1.3.8</b> BiNE</a></li>
+<li class="chapter" data-level="1.3.9" data-path=""><a href="#sgcn"><i class="fa fa-check"></i><b>1.3.9</b> SGCN</a></li>
+<li class="chapter" data-level="1.3.10" data-path=""><a href="#sigat"><i class="fa fa-check"></i><b>1.3.10</b> SiGAT</a></li>
+<li class="chapter" data-level="1.3.11" data-path=""><a href="#sdgnn"><i class="fa fa-check"></i><b>1.3.11</b> SDGNN</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#动态图"><i class="fa fa-check"></i><b>1.4</b> 动态图</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path=""><a href="#dysat"><i class="fa fa-check"></i><b>1.4.1</b> DySAT</a></li>
+<li class="chapter" data-level="1.4.2" data-path=""><a href="#evolve"><i class="fa fa-check"></i><b>1.4.2</b> Evolve</a></li>
+<li class="chapter" data-level="1.4.3" data-path=""><a href="#dgnn"><i class="fa fa-check"></i><b>1.4.3</b> DGNN</a></li>
+<li class="chapter" data-level="1.4.4" data-path=""><a href="#tgat"><i class="fa fa-check"></i><b>1.4.4</b> TGAT</a></li>
+<li class="chapter" data-level="1.4.5" data-path=""><a href="#hgnn"><i class="fa fa-check"></i><b>1.4.5</b> HGNN</a></li>
+<li class="chapter" data-level="1.4.6" data-path=""><a href="#dhgnn"><i class="fa fa-check"></i><b>1.4.6</b> DHGNN</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">图算法学习笔记</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">图算法学习笔记</h1>
+<p class="author"><em>高文欣</em></p>
+<p class="date"><em>2023-07-30</em></p>
+</div>
+<div id="图算法" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> 图算法</h1>
+<div id="基本定义" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> 基本定义</h2>
+<blockquote>
+<p>定义：图的结构是由顶点和边构成。
+规范定义为 图是由顶点的有穷非空集合和顶点之间的边的集合组成，通常表示为： G =（ V , E ）
+V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/article/details/124382385">霁轩</a></p>
+</blockquote>
+<p>图 <span class="math inline">\(G=(V, E)\)</span> :
+- 节点集 <span class="math inline">\(V\)</span>; 节点数量 <span class="math inline">\(n=|V|\)</span>;
+- 边集 <span class="math inline">\(E\)</span>; 边数量 <span class="math inline">\(m=|E|\)</span>;
+- 邻居矩阵 <span class="math inline">\(A\)</span>;
+- 度矩阵 <span class="math inline">\(D\)</span>;
+- 归一化邻接矩阵: <span class="math inline">\(P=D^{-1 / 2} A D^{-1 / 2}\)</span>
+- 归一化拉普拉斯䞠阵: <span class="math inline">\(L=I-D^{-1 / 2} A D^{-1 / 2}\)</span>
+- 节点特征矩阵 <span class="math inline">\(X \in \mathcal{R}^{n \times f}, f\)</span> 代表特征维度。</p>
+<p>（<strong>注意</strong>：线性表中无元素，则为空表，树中无节点，则为空树，但在图中，顶点数不能为0，边数可以为0。）</p>
+<div id="有向边和无向边有向图与无向图" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> 有向边和无向边、有向图与无向图</h3>
+<p>两个顶点之间的边的有无方向，判定它为有向无向，</p>
+<p>任意两个顶点的边是有向边的图为有向图，同理，为无向图。</p>
+</div>
+<div id="简单图" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> 简单图</h3>
+<p>简单图就是图中没有环，没有重边（两个顶点存在两条及以上的的边）。
+数据结构中讨论的是简单图。</p>
+</div>
+<div id="邻接依附" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> 邻接、依附</h3>
+<p>若两个顶点之间有边，则称为这两个点邻接。这个边也依附于这两个点。
+（线性表中数据元素仅有线性关系，树中节点有层次关系，图中任意两个点都有可能有关系。）</p>
+</div>
+<div id="完全图" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> 完全图</h3>
+<p>任意两个顶点之间都存在边。（有向完全图则为任意两个顶点之间存在互相指向的边。）
+含n个顶点的完全图有 1/2 ×n（n-1)条边，有向完全图则为它的2倍。</p>
+</div>
+<div id="稀疏图与稠密图" class="section level3" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> 稀疏图与稠密图</h3>
+<p>根据边的多少判断。</p>
+</div>
+<div id="顶点的度" class="section level3" number="1.1.6">
+<h3><span class="header-section-number">1.1.6</span> 顶点的度</h3>
+<p>度有入度和出度，该顶点的度就是依附于该点的边数。入度和出度是有向图里的，指向该点的边数为入度，从该点出发引出的边数则为出度。</p>
+</div>
+<div id="权图与网图" class="section level3" number="1.1.7">
+<h3><span class="header-section-number">1.1.7</span> 权图与网图</h3>
+<p>权是给边赋予有意义的值，
+带权的图称为网图。</p>
+</div>
+<div id="路径路径长度" class="section level3" number="1.1.8">
+<h3><span class="header-section-number">1.1.8</span> 路径、路径长度</h3>
+<p>从一个顶点到另一个顶点经过的顶点序列，v1v2v3…vi；
+路径长度=路径经过的边数（无权），在网图中则为经过边数权值之和。</p>
+</div>
+<div id="连通图连通分量" class="section level3" number="1.1.9">
+<h3><span class="header-section-number">1.1.9</span> 连通图、连通分量</h3>
+<p>图中任意两个顶点都存在路径，都可达，则称该图为连通图。
+非连通图的极大连通子图为连通分量。</p>
+</div>
+<div id="生成树生成森林" class="section level3" number="1.1.10">
+<h3><span class="header-section-number">1.1.10</span> 生成树、生成森林</h3>
+<p>由图中所有的顶点构成的无回路的连通图。
+每个连通分量都可生成树，组成森林。</p>
+</div>
+</div>
+<div id="经典图嵌入方法" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> 经典图嵌入方法</h2>
+<div id="deepwalk-2014" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> deepwalk-2014</h3>
+<p>DeepWalk是一种基于随机游走的方法生成顶点嵌入的方法。可以分为三步：</p>
+<p>第一步：采样。以每个结点为起点随机游走的方式获得一个序列。论文作者认为每个结点进行32~64次游走，每次游走的长度为40.</p>
+<p>第二步：训练Skip-gram模型。
+每一个结点对应一个embedding向量，然后使用基于分层Softmax框架的Skip-gram模型训练。通常窗口大小为21，即左右各10个。</p>
+<p>第三步：获取embedding映射表。</p>
+<p>DeepWalk的随机游走方式是完全随机的，有没有更好的策略呢？ Node2vec</p>
+</div>
+<div id="node2vec-2016" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> node2vec-2016</h3>
+</div>
+<div id="sdne" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> SDNE</h3>
+</div>
+<div id="line" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> LINE</h3>
+</div>
+<div id="pagerank" class="section level3" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> pagerank</h3>
+</div>
+<div id="struc2vec" class="section level3" number="1.2.6">
+<h3><span class="header-section-number">1.2.6</span> struc2vec</h3>
+</div>
+</div>
+<div id="图神经网络算法" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> 图神经网络算法</h2>
+<div id="gcn" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> GCN</h3>
+<p>图神经网络算法的开山之作~</p>
+<ul>
+<li><p>image卷积的本质：将图像的局部信息进行提取，或者说对图像中的一个区域进行汇总。</p></li>
+<li><p>graph卷积的本质：将结点的邻居（包括自己）的信息进行汇总，然后更新隐向量的过程。<a href="https://zhuanlan.zhihu.com/p/414839335">黎明程序员</a></p></li>
+</ul>
+<div id="图结构" class="section level4" number="1.3.1.1">
+<h4><span class="header-section-number">1.3.1.1</span> 图结构</h4>
+<p>GCN也可以像CNN一样叠加多层，整体网络结构如下图所示：</p>
+<p><img src="figs/gcn1.png" /></p>
+</div>
+<div id="gcn隐藏层传播" class="section level4" number="1.3.1.2">
+<h4><span class="header-section-number">1.3.1.2</span> GCN隐藏层传播</h4>
+<p>H<sup>{(l+1)}=(</sup>{-}  ^{-} H^{(l)} W^{(l)}</p>
+<p><span class="math inline">\(A\)</span> 波浪 <span class="math inline">\(=A+1\)</span> ，1是单位矩阵，相当于是无向图G的邻接矩阵加上自连接(就是每个顶点和自身加一条边) 如此一来消息聚合时不仅能聚合来自其他结点的消息，还能聚合结点自身的消息。<a href="https://blog.csdn.net/weixin_50706330/article/details/127468165">99.99%</a></p>
+<p><img src="figs/gcn2.png" /></p>
+<p>D波浪是A波浪的度矩阵 (degree matrix)，公式为 <span class="math inline">\(\mathrm{D}\)</span> 波浪 <span class="math inline">\(\mathrm{ii}=\sum \mathrm{jA}\)</span> 波浪（无向图里,节点的度就是节点连接的边的个数。) <span class="math inline">\(\mathrm{H}\)</span> 是每一层的特征，对于输入层的话， <span class="math inline">\(\mathrm{H}\)</span> 就是X (初始就给定的)
+<span class="math inline">\(\sigma\)</span> 是像Softmax、ReLU这样的非线性激活函数
+<span class="math inline">\(\mathrm{W}\)</span> 就是每一层模型的参数，也就是模型给节点特征乘上的权重，这是模型需要训练的参数，即权值矩阵 他们之间的运算，就是各矩阵相乘，部分内容就长这样：</p>
+<p><img src="figs/gcn3.png" /></p>
+</div>
+<div id="损失函数" class="section level4" number="1.3.1.3">
+<h4><span class="header-section-number">1.3.1.3</span> 损失函数</h4>
+<p>GCN 是一个多层的图卷积神经网络，每一个卷积层仅处理一阶邻域信息，通过叠加若干卷积层可以实现多阶邻域的信息传递。 从输入层开始，前向传播经过图卷积层运算，然后经过softmax激活函数的运算得到预测分类概率分布。 softmax的作用是将卷积网络的输出的结果进行概率化，我直接将Softmax理解为依据公式运算出样本点的类别。 假设我们构造一个两层的 GCN，激活函数分别采用ReLU和Softmax，则整体的正向传播的公式为：</p>
+<p>Z=f(X, A)=( ( X W^{(0)}) W^{(1)})</p>
+<p>该模型实际是输入层+隐藏层（图卷积层，类似全连接层的作用）+SoftMax+输出层构成的，GCN模型可视化为：</p>
+<p><img src="figs/gcn4.png" /></p>
+<p>GCN输入一个图，通过若干层GCN每个node的特征从X变成了Z，但是，无论中间有多少层，node之间的连接关系，即邻接矩阵A，都是共享的。</p>
+</div>
+</div>
+<div id="graphsage" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> graphSAGE</h3>
+</div>
+<div id="gat" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> GAT</h3>
+</div>
+<div id="han" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> HAN</h3>
+</div>
+<div id="gtn" class="section level3" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> GTN</h3>
+</div>
+<div id="meatpath2vec" class="section level3" number="1.3.6">
+<h3><span class="header-section-number">1.3.6</span> meatpath2vec</h3>
+</div>
+<div id="gatne" class="section level3" number="1.3.7">
+<h3><span class="header-section-number">1.3.7</span> GATNE</h3>
+</div>
+<div id="bine" class="section level3" number="1.3.8">
+<h3><span class="header-section-number">1.3.8</span> BiNE</h3>
+</div>
+<div id="sgcn" class="section level3" number="1.3.9">
+<h3><span class="header-section-number">1.3.9</span> SGCN</h3>
+</div>
+<div id="sigat" class="section level3" number="1.3.10">
+<h3><span class="header-section-number">1.3.10</span> SiGAT</h3>
+</div>
+<div id="sdgnn" class="section level3" number="1.3.11">
+<h3><span class="header-section-number">1.3.11</span> SDGNN</h3>
+</div>
+</div>
+<div id="动态图" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> 动态图</h2>
+<div id="dysat" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> DySAT</h3>
+</div>
+<div id="evolve" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Evolve</h3>
+<div id="evolve-o" class="section level4" number="1.4.2.1">
+<h4><span class="header-section-number">1.4.2.1</span> Evolve-O</h4>
+</div>
+<div id="evolve-h" class="section level4" number="1.4.2.2">
+<h4><span class="header-section-number">1.4.2.2</span> Evolve-H</h4>
+</div>
+</div>
+<div id="dgnn" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> DGNN</h3>
+</div>
+<div id="tgat" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> TGAT</h3>
+</div>
+<div id="hgnn" class="section level3" number="1.4.5">
+<h3><span class="header-section-number">1.4.5</span> HGNN</h3>
+</div>
+<div id="dhgnn" class="section level3" number="1.4.6">
+<h3><span class="header-section-number">1.4.6</span> DHGNN</h3>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
