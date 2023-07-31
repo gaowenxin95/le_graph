@@ -24,7 +24,7 @@
 <meta name="author" content="高文欣" />
 
 
-<meta name="date" content="2023-07-30" />
+<meta name="date" content="2023-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,69 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -80,6 +143,7 @@
 <li class="chapter" data-level="1.1.8" data-path=""><a href="#路径路径长度"><i class="fa fa-check"></i><b>1.1.8</b> 路径、路径长度</a></li>
 <li class="chapter" data-level="1.1.9" data-path=""><a href="#连通图连通分量"><i class="fa fa-check"></i><b>1.1.9</b> 连通图、连通分量</a></li>
 <li class="chapter" data-level="1.1.10" data-path=""><a href="#生成树生成森林"><i class="fa fa-check"></i><b>1.1.10</b> 生成树、生成森林</a></li>
+<li class="chapter" data-level="1.1.11" data-path=""><a href="#同构图异构图"><i class="fa fa-check"></i><b>1.1.11</b> 同构图、异构图</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path=""><a href="#经典图嵌入方法"><i class="fa fa-check"></i><b>1.2</b> 经典图嵌入方法</a>
 <ul>
@@ -134,7 +198,7 @@
 <div id="header">
 <h1 class="title">图算法学习笔记</h1>
 <p class="author"><em>高文欣</em></p>
-<p class="date"><em>2023-07-30</em></p>
+<p class="date"><em>2023-07-31</em></p>
 </div>
 <div id="图算法" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> 图算法</h1>
@@ -202,6 +266,26 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 <p>由图中所有的顶点构成的无回路的连通图。
 每个连通分量都可生成树，组成森林。</p>
 </div>
+<div id="同构图异构图" class="section level3" number="1.1.11">
+<h3><span class="header-section-number">1.1.11</span> 同构图、异构图</h3>
+<p>（1）同构图:<a href="https://wenku.baidu.com/view/6bfe8f69862458fb770bf78a6529647d27283400.html?_wkts_=1690811177611&amp;bdQuery=%E5%90%8C%E6%9E%84%E5%9B%BE%E5%92%8C%E5%BC%82%E6%9E%84%E5%9B%BE%E7%9A%84%E5%8C%BA%E5%88%AB">百度文库</a>
+同构图: 在图里面, 节点的类型和边的类型只有一种的图,
+举个例子, 像社交网络中只存在一种节点类型, 用户节点和一种边的类型, 用户-用户之间的连边。</p>
+<ol start="2" style="list-style-type: decimal">
+<li>异构图:
+与同构图相反, 异构图是指图中的节点类型或关系类型多于一种。在现实场景中, 我们通常研究的图数据对象是多类型的, 对象之间的交互 关系也是多样化的。因此, 异构图能够更好地贴近现实。
+异构图: 在图里面, 节点的类型+边的类型 <span class="math inline">\(&gt;2\)</span> 的一种图,
+举个例子, 论文引用网络中, 存在着作者节点和paper节点, 边的关系有作者-作者之间的共同创作关系连边, 作者-论文之间的从属关系,论文-论文之间的引用关系。</li>
+</ol>
+<p>（3）属性图:
+相较于异构图, 属性图给图数据增加了额外的属性信息, 如下图所示。对于一个属性图而言, 节点和关系都有标签（Label）和属性 (Property)，这里的标签是指节点或关系的类型, 如某节点的类型为 “用户”，属性是节点或关系的附加描述信息, 如 “用户” 节点可 以有“姓名” “注册时间” “注册地址”等属性。属性图是一种最常见的工业级图数据的表示方式, 能够广泛适用于多种业务场景下的数据表达。</p>
+<ol start="4" style="list-style-type: decimal">
+<li>非显式图:
+非显式图是指数据之间没有显式地定义出关系, 需要依据某种规则或计算方式将数据的关系表达出来, 进而将数据当成一种图数据进行研 究。比如计算机3D视觉中的点云数据, 如果我们将节点之间的空间距离转化成关系的话, 点云数据就成了图数据。
+其他:
+动态图: 图中的节点或者边都是随着时间变化的, 可能增加或减少, 一般是图的构成是按照时间片来构成, 每一个时间片一个图的表示, 例 如 <span class="math inline">\(\mathrm{t} 1\)</span> 时刻的图是初始图, <span class="math inline">\(\mathrm{t} 2\)</span> 时刻的图就是节点或连边变化后的图一直到 <span class="math inline">\(\operatorname{tn}\)</span> 时刻</li>
+</ol>
+</div>
 </div>
 <div id="经典图嵌入方法" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> 经典图嵌入方法</h2>
@@ -209,8 +293,7 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 <h3><span class="header-section-number">1.2.1</span> deepwalk-2014</h3>
 <p>DeepWalk是一种基于随机游走的方法生成顶点嵌入的方法。可以分为三步：</p>
 <p>第一步：采样。以每个结点为起点随机游走的方式获得一个序列。论文作者认为每个结点进行32~64次游走，每次游走的长度为40.</p>
-<p>第二步：训练Skip-gram模型。
-每一个结点对应一个embedding向量，然后使用基于分层Softmax框架的Skip-gram模型训练。通常窗口大小为21，即左右各10个。</p>
+<p>第二步：训练Skip-gram模型。每一个结点对应一个embedding向量，然后使用基于分层Softmax框架的Skip-gram模型训练。通常窗口大小为21，即左右各10个。</p>
 <p>第三步：获取embedding映射表。</p>
 <p>DeepWalk的随机游走方式是完全随机的，有没有更好的策略呢？ Node2vec</p>
 </div>
@@ -246,7 +329,8 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 </div>
 <div id="gcn隐藏层传播" class="section level4" number="1.3.1.2">
 <h4><span class="header-section-number">1.3.1.2</span> GCN隐藏层传播</h4>
-<p>H<sup>{(l+1)}=(</sup>{-}  ^{-} H^{(l)} W^{(l)}</p>
+<p><span class="math inline">\(H^{(l+1)}=\sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)\)</span></p>
+<p>其中，：(1) <span class="math inline">\(\tilde{A}=A+I_N\)</span> ，这里指无向图的邻接矩阵，但是添加了自连接（下图中的红线），也 就是每个节点也可以指向自己， <span class="math inline">\(I_N\)</span> 代表第 <span class="math inline">\(\mathrm{N}\)</span> 个节点矩阵实体，另外 <span class="math inline">\(\tilde{D}=\sum_j \tilde{A_{i j}}=D+I\)</span> 这 里相当于节点的度加1形成的矩阵 (用这个度矩阵进行归一化)， <span class="math inline">\(W^{(l)}\)</span> 是一个可训练的参数矩 阵，(2) <span class="math inline">\(\sigma(\cdot)\)</span> 代表激活函数，比如 <span class="math inline">\(R E L U(\cdot)=\max (0, \cdot)\)</span> ；(3) <span class="math inline">\(H^l \in R^{N \times D}\)</span> 代表 <span class="math inline">\(l^{\text {th }}\)</span> 层的隐 向量矩阵， <span class="math inline">\(H^0=X\)</span> ；</p>
 <p><span class="math inline">\(A\)</span> 波浪 <span class="math inline">\(=A+1\)</span> ，1是单位矩阵，相当于是无向图G的邻接矩阵加上自连接(就是每个顶点和自身加一条边) 如此一来消息聚合时不仅能聚合来自其他结点的消息，还能聚合结点自身的消息。<a href="https://blog.csdn.net/weixin_50706330/article/details/127468165">99.99%</a></p>
 <p><img src="figs/gcn2.png" /></p>
 <p>D波浪是A波浪的度矩阵 (degree matrix)，公式为 <span class="math inline">\(\mathrm{D}\)</span> 波浪 <span class="math inline">\(\mathrm{ii}=\sum \mathrm{jA}\)</span> 波浪（无向图里,节点的度就是节点连接的边的个数。) <span class="math inline">\(\mathrm{H}\)</span> 是每一层的特征，对于输入层的话， <span class="math inline">\(\mathrm{H}\)</span> 就是X (初始就给定的)
@@ -261,13 +345,210 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 <p>该模型实际是输入层+隐藏层（图卷积层，类似全连接层的作用）+SoftMax+输出层构成的，GCN模型可视化为：</p>
 <p><img src="figs/gcn4.png" /></p>
 <p>GCN输入一个图，通过若干层GCN每个node的特征从X变成了Z，但是，无论中间有多少层，node之间的连接关系，即邻接矩阵A，都是共享的。</p>
+<p>倒入数据</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2"></a>import math</span>
+<span id="cb1-3"><a href="#cb1-3"></a>import time</span>
+<span id="cb1-4"><a href="#cb1-4"></a>import numpy as np</span>
+<span id="cb1-5"><a href="#cb1-5"></a>import torch</span>
+<span id="cb1-6"><a href="#cb1-6"></a>import torch.nn as nn</span>
+<span id="cb1-7"><a href="#cb1-7"></a>import torch.optim as optim</span>
+<span id="cb1-8"><a href="#cb1-8"></a>import torch.nn.functional as F</span>
+<span id="cb1-9"><a href="#cb1-9"></a>import scipy.sparse as sp</span>
+<span id="cb1-10"><a href="#cb1-10"></a>import argparse</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>def <span class="kw">encode_onehot</span>(labels)<span class="op">:</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="st">    &quot;&quot;&quot;使用one-hot对标签进行编码&quot;&quot;&quot;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>    classes =<span class="st"> </span><span class="kw">set</span>(labels)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    classes_dict =<span class="st"> </span>{c<span class="op">:</span><span class="st"> </span><span class="kw">np.identity</span>(<span class="kw">len</span>(classes))[i, <span class="op">:</span>] <span class="cf">for</span> i, c <span class="cf">in</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>                    <span class="kw">enumerate</span>(classes)}</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    labels_onehot =<span class="st"> </span><span class="kw">np.array</span>(<span class="kw">list</span>(<span class="kw">map</span>(classes_dict.get, labels)),</span>
+<span id="cb1-18"><a href="#cb1-18"></a>                             <span class="dt">dtype=</span>np.int32)</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    return labels_onehot</span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a>def <span class="kw">normalize</span>(mx)<span class="op">:</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="st">    &quot;&quot;&quot;行归一化&quot;&quot;&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>    rowsum =<span class="st"> </span><span class="kw">np.array</span>(<span class="kw">mx.sum</span>(<span class="dv">1</span>))</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    r_inv =<span class="st"> </span><span class="kw">np.power</span>(rowsum, <span class="dv">-1</span>)<span class="kw">.flatten</span>()</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    r_inv[<span class="kw">np.isinf</span>(r_inv)] =<span class="st"> </span><span class="fl">0.</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>    r_mat_inv =<span class="st"> </span><span class="kw">sp.diags</span>(r_inv)</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    mx =<span class="st"> </span><span class="kw">r_mat_inv.dot</span>(mx)</span>
+<span id="cb1-28"><a href="#cb1-28"></a>    return mx</span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a>def <span class="kw">sparse_mx_to_torch_sparse_tensor</span>(sparse_mx)<span class="op">:</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="st">    &quot;&quot;&quot;将一个scipy sparse matrix转化为torch sparse tensor.&quot;&quot;&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>    sparse_mx =<span class="st"> </span><span class="kw">sparse_mx.tocoo</span>()<span class="kw">.astype</span>(np.float32)</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    indices =<span class="st"> </span><span class="kw">torch.from_numpy</span>(</span>
+<span id="cb1-34"><a href="#cb1-34"></a>        <span class="kw">np.vstack</span>((sparse_mx.row, sparse_mx.col))<span class="kw">.astype</span>(np.int64))</span>
+<span id="cb1-35"><a href="#cb1-35"></a>    values =<span class="st"> </span><span class="kw">torch.from_numpy</span>(sparse_mx.data)</span>
+<span id="cb1-36"><a href="#cb1-36"></a>    shape =<span class="st"> </span><span class="kw">torch.Size</span>(sparse_mx.shape)</span>
+<span id="cb1-37"><a href="#cb1-37"></a>    return <span class="kw">torch.sparse.FloatTensor</span>(indices, values, shape)</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a>def <span class="kw">load_data</span>(<span class="dt">path=</span><span class="st">&quot;./cora/&quot;</span>, <span class="dt">dataset=</span><span class="st">&quot;cora&quot;</span>)<span class="op">:</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="st">    &quot;&quot;&quot;读取引文网络数据cora&quot;&quot;&quot;</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>    <span class="kw">print</span>(<span class="st">&#39;Loading {} dataset...&#39;</span><span class="kw">.format</span>(dataset))</span>
+<span id="cb1-42"><a href="#cb1-42"></a>    idx_features_labels =<span class="st"> </span><span class="kw">np.genfromtxt</span>(<span class="st">&quot;{}{}.content&quot;</span><span class="kw">.format</span>(path, dataset),</span>
+<span id="cb1-43"><a href="#cb1-43"></a>                                        <span class="dt">dtype=</span><span class="kw">np.dtype</span>(str)) <span class="co"># 使用numpy读取.txt文件</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>    features =<span class="st"> </span><span class="kw">sp.csr_matrix</span>(idx_features_labels[<span class="op">:</span>, <span class="dv">1</span><span class="op">:-</span><span class="dv">1</span>], <span class="dt">dtype=</span>np.float32) <span class="co"># 获取特征矩阵</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>    labels =<span class="st"> </span><span class="kw">encode_onehot</span>(idx_features_labels[<span class="op">:</span>, <span class="dv">-1</span>]) <span class="co"># 获取标签</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a>    <span class="co"># build graph</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>    idx =<span class="st"> </span><span class="kw">np.array</span>(idx_features_labels[<span class="op">:</span>, <span class="dv">0</span>], <span class="dt">dtype=</span>np.int32)</span>
+<span id="cb1-49"><a href="#cb1-49"></a>    idx_map =<span class="st"> </span>{j<span class="op">:</span><span class="st"> </span>i <span class="cf">for</span> i, j <span class="cf">in</span> <span class="kw">enumerate</span>(idx)}</span>
+<span id="cb1-50"><a href="#cb1-50"></a>    edges_unordered =<span class="st"> </span><span class="kw">np.genfromtxt</span>(<span class="st">&quot;{}{}.cites&quot;</span><span class="kw">.format</span>(path, dataset),</span>
+<span id="cb1-51"><a href="#cb1-51"></a>                                    <span class="dt">dtype=</span>np.int32)</span>
+<span id="cb1-52"><a href="#cb1-52"></a>    edges =<span class="st"> </span><span class="kw">np.array</span>(<span class="kw">list</span>(<span class="kw">map</span>(idx_map.get, <span class="kw">edges_unordered.flatten</span>())),</span>
+<span id="cb1-53"><a href="#cb1-53"></a>                     <span class="dt">dtype=</span>np.int32)<span class="kw">.reshape</span>(edges_unordered.shape)</span>
+<span id="cb1-54"><a href="#cb1-54"></a>    adj =<span class="st"> </span><span class="kw">sp.coo_matrix</span>((<span class="kw">np.ones</span>(edges.shape[<span class="dv">0</span>]), (edges[<span class="op">:</span>, <span class="dv">0</span>], edges[<span class="op">:</span>, <span class="dv">1</span>])),</span>
+<span id="cb1-55"><a href="#cb1-55"></a>                        <span class="dt">shape=</span>(labels.shape[<span class="dv">0</span>], labels.shape[<span class="dv">0</span>]),</span>
+<span id="cb1-56"><a href="#cb1-56"></a>                        <span class="dt">dtype=</span>np.float32)</span>
+<span id="cb1-57"><a href="#cb1-57"></a></span>
+<span id="cb1-58"><a href="#cb1-58"></a>    <span class="co"># build symmetric adjacency matrix</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a>    adj =<span class="st"> </span>adj <span class="op">+</span><span class="st"> </span><span class="kw">adj.T.multiply</span>(adj.T <span class="op">&gt;</span><span class="st"> </span>adj) <span class="op">-</span><span class="st"> </span><span class="kw">adj.multiply</span>(adj.T <span class="op">&gt;</span><span class="st"> </span>adj)</span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a>    features =<span class="st"> </span><span class="kw">normalize</span>(features)</span>
+<span id="cb1-62"><a href="#cb1-62"></a>    adj =<span class="st"> </span><span class="kw">normalize</span>(adj <span class="op">+</span><span class="st"> </span><span class="kw">sp.eye</span>(adj.shape[<span class="dv">0</span>]))</span>
+<span id="cb1-63"><a href="#cb1-63"></a></span>
+<span id="cb1-64"><a href="#cb1-64"></a>    idx_train =<span class="st"> </span><span class="kw">range</span>(<span class="dv">140</span>)</span>
+<span id="cb1-65"><a href="#cb1-65"></a>    idx_val =<span class="st"> </span><span class="kw">range</span>(<span class="dv">200</span>, <span class="dv">500</span>)</span>
+<span id="cb1-66"><a href="#cb1-66"></a>    idx_test =<span class="st"> </span><span class="kw">range</span>(<span class="dv">500</span>, <span class="dv">1500</span>)</span>
+<span id="cb1-67"><a href="#cb1-67"></a></span>
+<span id="cb1-68"><a href="#cb1-68"></a>    features =<span class="st"> </span><span class="kw">torch.FloatTensor</span>(<span class="kw">np.array</span>(<span class="kw">features.todense</span>()))</span>
+<span id="cb1-69"><a href="#cb1-69"></a>    labels =<span class="st"> </span><span class="kw">torch.LongTensor</span>(<span class="kw">np.where</span>(labels)[<span class="dv">1</span>])</span>
+<span id="cb1-70"><a href="#cb1-70"></a>    adj =<span class="st"> </span><span class="kw">sparse_mx_to_torch_sparse_tensor</span>(adj)</span>
+<span id="cb1-71"><a href="#cb1-71"></a></span>
+<span id="cb1-72"><a href="#cb1-72"></a>    idx_train =<span class="st"> </span><span class="kw">torch.LongTensor</span>(idx_train)</span>
+<span id="cb1-73"><a href="#cb1-73"></a>    idx_val =<span class="st"> </span><span class="kw">torch.LongTensor</span>(idx_val)</span>
+<span id="cb1-74"><a href="#cb1-74"></a>    idx_test =<span class="st"> </span><span class="kw">torch.LongTensor</span>(idx_test)</span>
+<span id="cb1-75"><a href="#cb1-75"></a></span>
+<span id="cb1-76"><a href="#cb1-76"></a>    return adj, features, labels, idx_train, idx_val, idx_test</span>
+<span id="cb1-77"><a href="#cb1-77"></a>    </span></code></pre></div>
+<p>GCN框架</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>class <span class="kw">GCNLayer</span>(nn.Module)<span class="op">:</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="st">    &quot;&quot;&quot;GCN层&quot;&quot;&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    def <span class="kw">__init__</span>(self,input_features,output_features,<span class="dt">bias=</span>False)<span class="op">:</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">        </span><span class="kw">super</span>(GCNLayer,self)<span class="kw">.__init__</span>()</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        self.input_features =<span class="st"> </span>input_features</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        self.output_features =<span class="st"> </span>output_features</span>
+<span id="cb2-7"><a href="#cb2-7"></a>        self.weights =<span class="st"> </span><span class="kw">nn.Parameter</span>(<span class="kw">torch.FloatTensor</span>(input_features,output_features))</span>
+<span id="cb2-8"><a href="#cb2-8"></a>        <span class="cf">if</span> bias<span class="op">:</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="st">            </span>self.bias =<span class="st"> </span><span class="kw">nn.Parameter</span>(<span class="kw">torch.FloatTensor</span>(output_features))</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="cf">else</span><span class="op">:</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="st">            </span><span class="kw">self.register_parameter</span>(<span class="st">&#39;bias&#39;</span>,None)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>        <span class="kw">self.reset_parameters</span>()</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    def <span class="kw">reset_parameters</span>(self)<span class="op">:</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="st">        &quot;&quot;&quot;初始化参数&quot;&quot;&quot;</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>        std =<span class="st"> </span><span class="fl">1.</span><span class="op">/</span><span class="kw">math.sqrt</span>(<span class="kw">self.weights.size</span>(<span class="dv">1</span>))</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="kw">self.weights.data.uniform_</span>(<span class="op">-</span>std,std)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>        <span class="cf">if</span> self.bias is not None<span class="op">:</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="st">            </span><span class="kw">self.bias.data.uniform_</span>(<span class="op">-</span>std,std)</span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a>    def <span class="kw">forward</span>(self,adj,x)<span class="op">:</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="st">        </span>support =<span class="st"> </span><span class="kw">torch.mm</span>(x,self.weights)</span>
+<span id="cb2-23"><a href="#cb2-23"></a>        output =<span class="st"> </span><span class="kw">torch.spmm</span>(adj,support)</span>
+<span id="cb2-24"><a href="#cb2-24"></a>        <span class="cf">if</span> self.bias is not None<span class="op">:</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="st">            </span>return output<span class="op">+</span>self.bias</span>
+<span id="cb2-26"><a href="#cb2-26"></a>        return output</span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a>class <span class="kw">GCN</span>(nn.Module)<span class="op">:</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="st">    &quot;&quot;&quot;两层GCN模型&quot;&quot;&quot;</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a>    def <span class="kw">__init__</span>(self,input_size,hidden_size,num_class,dropout,<span class="dt">bias=</span>False)<span class="op">:</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="st">        </span><span class="kw">super</span>(GCN,self)<span class="kw">.__init__</span>()</span>
+<span id="cb2-32"><a href="#cb2-32"></a>        self.input_size=input_size</span>
+<span id="cb2-33"><a href="#cb2-33"></a>        self.hidden_size=hidden_size</span>
+<span id="cb2-34"><a href="#cb2-34"></a>        self.num_class =<span class="st"> </span>num_class</span>
+<span id="cb2-35"><a href="#cb2-35"></a>        self.gcn1 =<span class="st"> </span><span class="kw">GCNLayer</span>(input_size,hidden_size,<span class="dt">bias=</span>bias)</span>
+<span id="cb2-36"><a href="#cb2-36"></a>        self.gcn2 =<span class="st"> </span><span class="kw">GCNLayer</span>(hidden_size,num_class,<span class="dt">bias=</span>bias)</span>
+<span id="cb2-37"><a href="#cb2-37"></a>        self.dropout =<span class="st"> </span>dropout</span>
+<span id="cb2-38"><a href="#cb2-38"></a>    def <span class="kw">forward</span>(self,adj,x)<span class="op">:</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="st">        </span>x =<span class="st"> </span><span class="kw">F.relu</span>(<span class="kw">self.gcn1</span>(adj,x))</span>
+<span id="cb2-40"><a href="#cb2-40"></a>        x =<span class="st"> </span><span class="kw">F.dropout</span>(x,self.dropout,<span class="dt">training=</span>self.training)</span>
+<span id="cb2-41"><a href="#cb2-41"></a>        x =<span class="st"> </span><span class="kw">self.gcn2</span>(adj,x)</span>
+<span id="cb2-42"><a href="#cb2-42"></a>        return <span class="kw">F.log_softmax</span>(x,<span class="dt">dim=</span><span class="dv">1</span>)</span></code></pre></div>
+<p>模型评估</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>def <span class="kw">accuracy</span>(output, labels)<span class="op">:</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="st">    </span>preds =<span class="st"> </span><span class="kw">output.max</span>(<span class="dv">1</span>)[<span class="dv">1</span>]<span class="kw">.type_as</span>(labels)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    correct =<span class="st"> </span><span class="kw">preds.eq</span>(labels)<span class="kw">.double</span>()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    correct =<span class="st"> </span><span class="kw">correct.sum</span>()</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    return correct <span class="op">/</span><span class="st"> </span><span class="kw">len</span>(labels)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>def <span class="kw">train_gcn</span>(epoch)<span class="op">:</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="st">    </span>t =<span class="st"> </span><span class="kw">time.time</span>()</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="kw">model.train</span>()</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="kw">optimizer.zero_grad</span>()</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    output =<span class="st"> </span><span class="kw">model</span>(adj,features)</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    loss =<span class="st"> </span><span class="kw">F.nll_loss</span>(output[idx_train],labels[idx_train])</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    acc =<span class="st"> </span><span class="kw">accuracy</span>(output[idx_train],labels[idx_train])</span>
+<span id="cb3-14"><a href="#cb3-14"></a>    <span class="kw">loss.backward</span>()</span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="kw">optimizer.step</span>()</span>
+<span id="cb3-16"><a href="#cb3-16"></a>    loss_val =<span class="st"> </span><span class="kw">F.nll_loss</span>(output[idx_val],labels[idx_val])</span>
+<span id="cb3-17"><a href="#cb3-17"></a>    acc_val =<span class="st"> </span><span class="kw">accuracy</span>(output[idx_val], labels[idx_val])</span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="kw">print</span>(<span class="st">&#39;Epoch: {:04d}&#39;</span><span class="kw">.format</span>(epoch<span class="op">+</span><span class="dv">1</span>),</span>
+<span id="cb3-19"><a href="#cb3-19"></a>          <span class="st">&#39;loss_train: {:.4f}&#39;</span><span class="kw">.format</span>(<span class="kw">loss.item</span>()),</span>
+<span id="cb3-20"><a href="#cb3-20"></a>          <span class="st">&#39;acc_train: {:.4f}&#39;</span><span class="kw">.format</span>(<span class="kw">acc.item</span>()),</span>
+<span id="cb3-21"><a href="#cb3-21"></a>          <span class="st">&#39;loss_val: {:.4f}&#39;</span><span class="kw">.format</span>(<span class="kw">loss_val.item</span>()),</span>
+<span id="cb3-22"><a href="#cb3-22"></a>          <span class="st">&#39;acc_val: {:.4f}&#39;</span><span class="kw">.format</span>(<span class="kw">acc_val.item</span>()),</span>
+<span id="cb3-23"><a href="#cb3-23"></a>          <span class="st">&#39;time: {:.4f}s&#39;</span><span class="kw">.format</span>(<span class="kw">time.time</span>() <span class="op">-</span><span class="st"> </span>t))</span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a></span>
+<span id="cb3-26"><a href="#cb3-26"></a>def <span class="kw">test</span>()<span class="op">:</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="st">    </span><span class="kw">model.eval</span>()</span>
+<span id="cb3-28"><a href="#cb3-28"></a>    output =<span class="st"> </span><span class="kw">model</span>(adj,features)</span>
+<span id="cb3-29"><a href="#cb3-29"></a>    loss_test =<span class="st"> </span><span class="kw">F.nll_loss</span>(output[idx_test], labels[idx_test])</span>
+<span id="cb3-30"><a href="#cb3-30"></a>    acc_test =<span class="st"> </span><span class="kw">accuracy</span>(output[idx_test], labels[idx_test])</span>
+<span id="cb3-31"><a href="#cb3-31"></a>    <span class="kw">print</span>(<span class="st">&quot;Test set results:&quot;</span>,</span>
+<span id="cb3-32"><a href="#cb3-32"></a>          <span class="st">&quot;loss= {:.4f}&quot;</span><span class="kw">.format</span>(<span class="kw">loss_test.item</span>()),</span>
+<span id="cb3-33"><a href="#cb3-33"></a>          <span class="st">&quot;accuracy= {:.4f}&quot;</span><span class="kw">.format</span>(<span class="kw">acc_test.item</span>()))</span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="cf">if</span> __name__ <span class="op">==</span><span class="st"> &#39;__main__&#39;</span><span class="op">:</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="st">    </span><span class="co"># 训练预设</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="st">    </span>parser =<span class="st"> </span><span class="kw">argparse.ArgumentParser</span>()</span>
+<span id="cb3-38"><a href="#cb3-38"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--no-cuda&#39;</span>, <span class="dt">action=</span><span class="st">&#39;store_true&#39;</span>, <span class="dt">default=</span>False,</span>
+<span id="cb3-39"><a href="#cb3-39"></a>                        <span class="dt">help=</span><span class="st">&#39;Disables CUDA training.&#39;</span>)</span>
+<span id="cb3-40"><a href="#cb3-40"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--fastmode&#39;</span>, <span class="dt">action=</span><span class="st">&#39;store_true&#39;</span>, <span class="dt">default=</span>False,</span>
+<span id="cb3-41"><a href="#cb3-41"></a>                        <span class="dt">help=</span><span class="st">&#39;Validate during training pass.&#39;</span>)</span>
+<span id="cb3-42"><a href="#cb3-42"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--seed&#39;</span>, <span class="dt">type=</span>int, <span class="dt">default=</span><span class="dv">42</span>, <span class="dt">help=</span><span class="st">&#39;Random seed.&#39;</span>)</span>
+<span id="cb3-43"><a href="#cb3-43"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--epochs&#39;</span>, <span class="dt">type=</span>int, <span class="dt">default=</span><span class="dv">200</span>,</span>
+<span id="cb3-44"><a href="#cb3-44"></a>                        <span class="dt">help=</span><span class="st">&#39;Number of epochs to train.&#39;</span>)</span>
+<span id="cb3-45"><a href="#cb3-45"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--lr&#39;</span>, <span class="dt">type=</span>float, <span class="dt">default=</span><span class="fl">0.01</span>,</span>
+<span id="cb3-46"><a href="#cb3-46"></a>                        <span class="dt">help=</span><span class="st">&#39;Initial learning rate.&#39;</span>)</span>
+<span id="cb3-47"><a href="#cb3-47"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--weight_decay&#39;</span>, <span class="dt">type=</span>float, <span class="dt">default=</span><span class="fl">5e-4</span>,</span>
+<span id="cb3-48"><a href="#cb3-48"></a>                        <span class="dt">help=</span><span class="st">&#39;Weight decay (L2 loss on parameters).&#39;</span>)</span>
+<span id="cb3-49"><a href="#cb3-49"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--hidden&#39;</span>, <span class="dt">type=</span>int, <span class="dt">default=</span><span class="dv">16</span>,</span>
+<span id="cb3-50"><a href="#cb3-50"></a>                        <span class="dt">help=</span><span class="st">&#39;Number of hidden units.&#39;</span>)</span>
+<span id="cb3-51"><a href="#cb3-51"></a>    <span class="kw">parser.add_argument</span>(<span class="st">&#39;--dropout&#39;</span>, <span class="dt">type=</span>float, <span class="dt">default=</span><span class="fl">0.5</span>,</span>
+<span id="cb3-52"><a href="#cb3-52"></a>                        <span class="dt">help=</span><span class="st">&#39;Dropout rate (1 - keep probability).&#39;</span>)</span>
+<span id="cb3-53"><a href="#cb3-53"></a></span>
+<span id="cb3-54"><a href="#cb3-54"></a>    args =<span class="st"> </span><span class="kw">parser.parse_args</span>()</span>
+<span id="cb3-55"><a href="#cb3-55"></a>    <span class="kw">np.random.seed</span>(args.seed)</span>
+<span id="cb3-56"><a href="#cb3-56"></a>    adj, features, labels, idx_train, idx_val, idx_test =<span class="st"> </span><span class="kw">load_data</span>()</span>
+<span id="cb3-57"><a href="#cb3-57"></a>    model =<span class="st"> </span><span class="kw">GCN</span>(features.shape[<span class="dv">1</span>],args.hidden,<span class="kw">labels.max</span>()<span class="kw">.item</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>,<span class="dt">dropout=</span>args.dropout)</span>
+<span id="cb3-58"><a href="#cb3-58"></a>    optimizer =<span class="st"> </span><span class="kw">optim.Adam</span>(<span class="kw">model.parameters</span>(),<span class="dt">lr=</span>args.lr,<span class="dt">weight_decay=</span>args.weight_decay)</span>
+<span id="cb3-59"><a href="#cb3-59"></a>    <span class="cf">for</span> epoch <span class="cf">in</span> <span class="kw">range</span>(args.epochs)<span class="op">:</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="st">        </span><span class="kw">train_gcn</span>(epoch)</span></code></pre></div>
 </div>
 </div>
 <div id="graphsage" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> graphSAGE</h3>
+<p>严格来说graphsage并不是一种新的图算法，而是一种推导式图学习方法。训练时Graphsage 分为两步：邻居采样和特征聚合。这与普通图算法没有差异，只是训练时对每一个节点构建相应的子图，然后所有子图相同层的权重矩阵共享。邻居聚合时可以选用不同聚合方式，比如图卷积(GCN), 图注意力机制(GAT) 以及最大池化(max pooling) 等，这相当于集大成者。</p>
+<p>相比 GCN 和 GAT，预测时graphsage不需要把新节点加入图中更新全图重新训练，而是根据新节点构建子图，然后利用训练得到的各层参数直接计算预测。</p>
+<blockquote>
+<p>取代原来为每个节点独立训练embedding的方法（原来的transductive 直推式的框架只能对固定的图生成embedding<GCN>，transductive 方法在处理以前从未见过的数据时效果不佳），GraphSAGE采用采样和聚合的方法，是一个inductive（归纳式的框架，归纳式能够处理图中新增的节点，或者通过之前学习的图的知识，用于新图label 的推断上），能够同时利用节点特征信息和结构信息得到Graph Embedding的映射，并且能够高效地利用节点的属性信息对新节点生成embedding。可以同时学习每个节点邻域的拓扑结构以及节点特征在邻域中的分布。
+相比之前的方法，之前都是保存了映射后的结果（一次性的，只能学习已经存在的图，不记录转换的过程），而GraphSAGE保存了生成embedding的映射（学习了一个计算函数，泛化能力强），可扩展性更强，对于节点分类和链接预测问题的表现也比较好（动态图）。<a href="https://zhuanlan.zhihu.com/p/419827450">Brauch</a></p>
+</blockquote>
 </div>
 <div id="gat" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> GAT</h3>
+<p>真实图中往往包含大量噪声，邻居的相对重要性有差异。GAT 在邻居聚合时给不同邻居赋不同权 重即 “注意力系数” (attention coefficient)，这样在邻居做完加权求和后吸收重要邻居特征，减 少了噪声影响。
+注意力系数通过计算邻居节点与目标节点相似度然后通过softmax 归一化得到，如式4
+<span class="math display">\[
+\begin{gathered}
+\alpha_{i j}=\operatorname{softmax}_j\left(e_{i j}\right)=\frac{\exp \left(e_{i j}\right)}{\sum_{k \in \mathcal{N}_i} \exp \left(e_{i k}\right)} . \\
+\text { 式 (4) }
+\end{gathered}
+\]</span>
+目标节点特征是通过邻居特征与各自注意力系数相乘然后加权求和获得。为捕获更多信息，GAT 中还可以使用多头 attention，如下图10为论文中采用3个 attention头的特征聚合方式。</p>
 </div>
 <div id="han" class="section level3" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> HAN</h3>
