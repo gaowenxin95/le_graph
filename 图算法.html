@@ -24,7 +24,7 @@
 <meta name="author" content="高文欣" />
 
 
-<meta name="date" content="2023-07-31" />
+<meta name="date" content="2023-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,6 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.9" data-path=""><a href="#连通图连通分量"><i class="fa fa-check"></i><b>1.1.9</b> 连通图、连通分量</a></li>
 <li class="chapter" data-level="1.1.10" data-path=""><a href="#生成树生成森林"><i class="fa fa-check"></i><b>1.1.10</b> 生成树、生成森林</a></li>
 <li class="chapter" data-level="1.1.11" data-path=""><a href="#同构图异构图"><i class="fa fa-check"></i><b>1.1.11</b> 同构图、异构图</a></li>
+<li class="chapter" data-level="1.1.12" data-path=""><a href="#图嵌入"><i class="fa fa-check"></i><b>1.1.12</b> 图嵌入</a></li>
+<li class="chapter" data-level="1.1.13" data-path=""><a href="#元路径"><i class="fa fa-check"></i><b>1.1.13</b> 元路径</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path=""><a href="#经典图嵌入方法"><i class="fa fa-check"></i><b>1.2</b> 经典图嵌入方法</a>
 <ul>
@@ -159,14 +161,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.1" data-path=""><a href="#gcn"><i class="fa fa-check"></i><b>1.3.1</b> GCN</a></li>
 <li class="chapter" data-level="1.3.2" data-path=""><a href="#graphsage"><i class="fa fa-check"></i><b>1.3.2</b> graphSAGE</a></li>
 <li class="chapter" data-level="1.3.3" data-path=""><a href="#gat"><i class="fa fa-check"></i><b>1.3.3</b> GAT</a></li>
-<li class="chapter" data-level="1.3.4" data-path=""><a href="#han"><i class="fa fa-check"></i><b>1.3.4</b> HAN</a></li>
-<li class="chapter" data-level="1.3.5" data-path=""><a href="#gtn"><i class="fa fa-check"></i><b>1.3.5</b> GTN</a></li>
-<li class="chapter" data-level="1.3.6" data-path=""><a href="#meatpath2vec"><i class="fa fa-check"></i><b>1.3.6</b> meatpath2vec</a></li>
-<li class="chapter" data-level="1.3.7" data-path=""><a href="#gatne"><i class="fa fa-check"></i><b>1.3.7</b> GATNE</a></li>
-<li class="chapter" data-level="1.3.8" data-path=""><a href="#bine"><i class="fa fa-check"></i><b>1.3.8</b> BiNE</a></li>
-<li class="chapter" data-level="1.3.9" data-path=""><a href="#sgcn"><i class="fa fa-check"></i><b>1.3.9</b> SGCN</a></li>
-<li class="chapter" data-level="1.3.10" data-path=""><a href="#sigat"><i class="fa fa-check"></i><b>1.3.10</b> SiGAT</a></li>
-<li class="chapter" data-level="1.3.11" data-path=""><a href="#sdgnn"><i class="fa fa-check"></i><b>1.3.11</b> SDGNN</a></li>
+<li class="chapter" data-level="1.3.4" data-path=""><a href="#esim"><i class="fa fa-check"></i><b>1.3.4</b> ESim</a></li>
+<li class="chapter" data-level="1.3.5" data-path=""><a href="#han"><i class="fa fa-check"></i><b>1.3.5</b> HAN</a></li>
+<li class="chapter" data-level="1.3.6" data-path=""><a href="#gtn"><i class="fa fa-check"></i><b>1.3.6</b> GTN</a></li>
+<li class="chapter" data-level="1.3.7" data-path=""><a href="#meatpath2vec"><i class="fa fa-check"></i><b>1.3.7</b> meatpath2vec</a></li>
+<li class="chapter" data-level="1.3.8" data-path=""><a href="#gatne"><i class="fa fa-check"></i><b>1.3.8</b> GATNE</a></li>
+<li class="chapter" data-level="1.3.9" data-path=""><a href="#bine"><i class="fa fa-check"></i><b>1.3.9</b> BiNE</a></li>
+<li class="chapter" data-level="1.3.10" data-path=""><a href="#sgcn"><i class="fa fa-check"></i><b>1.3.10</b> SGCN</a></li>
+<li class="chapter" data-level="1.3.11" data-path=""><a href="#sigat"><i class="fa fa-check"></i><b>1.3.11</b> SiGAT</a></li>
+<li class="chapter" data-level="1.3.12" data-path=""><a href="#sdgnn"><i class="fa fa-check"></i><b>1.3.12</b> SDGNN</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path=""><a href="#动态图"><i class="fa fa-check"></i><b>1.4</b> 动态图</a>
 <ul>
@@ -198,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">图算法学习笔记</h1>
 <p class="author"><em>高文欣</em></p>
-<p class="date"><em>2023-07-31</em></p>
+<p class="date"><em>2023-08-08</em></p>
 </div>
 <div id="图算法" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> 图算法</h1>
@@ -286,12 +289,28 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 动态图: 图中的节点或者边都是随着时间变化的, 可能增加或减少, 一般是图的构成是按照时间片来构成, 每一个时间片一个图的表示, 例 如 <span class="math inline">\(\mathrm{t} 1\)</span> 时刻的图是初始图, <span class="math inline">\(\mathrm{t} 2\)</span> 时刻的图就是节点或连边变化后的图一直到 <span class="math inline">\(\operatorname{tn}\)</span> 时刻</p></li>
 </ul>
 </div>
+<div id="图嵌入" class="section level3" number="1.1.12">
+<h3><span class="header-section-number">1.1.12</span> 图嵌入</h3>
+<blockquote>
+<p>网络嵌入，即网络表示学习（NRL），旨在将网络嵌入到一个低维空间中，同时保持网络的结构和性质，以便将学习到的嵌入应用于下游网络任务。例如，基于随机游走的方法、基于深层神经网络的方法、基于矩阵分解的方法以及其他方法，例如LINE。然而，所有这些算法都是针对同构图提出的。</p>
+</blockquote>
+<blockquote>
+<p>异构图嵌入主要关注基于元路径的结构信息的保存。ESim接受用户定义的元路径作为指导，在用户首选的嵌入空间中学习顶点向量，以进行相似性搜索。即使ESim可以利用多个元路径，它也无法了解元路径的重要性。为了获得最佳性能，ESim需要进行网格搜索以找到hmeta路径的最佳权重。很难找到特定任务的最佳组合。Metapath2vec设计了一种基于元路径的随机游走，并利用skip-gram执行异构图嵌入。然而，metapath2vec只能使用一条元路径，可能会忽略一些有用的信息。与metapath2vec类似，HERec提出了一种类型约束策略来过滤节点序列并捕获异构图中反映的复杂语义。HIN2Vec执行多个预测训练任务，同时学习节点和元路径的潜在向量。Chen等人提出了一种投影度量嵌入模型，称为PME，该模型可以通过欧几里得距离保持节点的近邻。PME将不同类型的节点投影到同一关系空间，并进行异构链路预测。为了研究异构图的综合描述问题，Chen等人提出了通过边表示嵌入异构图的HEER。Fan等人提出了一种嵌入模型metagraph2vec，其中最大限度地保留了恶意软件检测的结构和语义。Sun等人提出了基于元图的网络嵌入模型，该模型同时考虑了元图中所有元信息的隐藏关系。总之，上述所有算法都没有考虑异构图表示学习中的注意力机制。</p>
+</blockquote>
+</div>
+<div id="元路径" class="section level3" number="1.1.13">
+<h3><span class="header-section-number">1.1.13</span> 元路径</h3>
+<p>元路径 meta-path
+元路径是属于异构图的一个概念。在异构图中，两个节点可以通过不同的路径产生关联。在电商场景的异构图中，可以通过“买家-商家-买家”和“买家-设备-买家”连接两个不同的买家，而不同的路径则具有语义上的不同，元路径meta-path即用来表示连接两个实体的一条特定的路径。</p>
+</div>
 </div>
 <div id="经典图嵌入方法" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> 经典图嵌入方法</h2>
 <div id="deepwalk-2014" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> deepwalk-2014</h3>
-<p>DeepWalk是一种基于随机游走的方法生成顶点嵌入的方法。可以分为三步：</p>
+<p>首先打乱节点顺序，以每个节点为起点，通过随机游走到方式生成节点序列，使用skip-gram算法来学习Embedding。</p>
+<p>随机游走过程比较简单，在遍历每个节点到时候随机选择一个邻居节点作为序列的下一个节点，一直到需要到最大长度停下来。对于有向图和带有权重到图，可以根据实际情况来调整选择邻居节点的概率。<a href="https://zhuanlan.zhihu.com/p/553381564">刘下</a></p>
+<p>DeepWalk是一种基于随机游走的方法生成顶点嵌入的方法,用于同构图。可以分为三步：</p>
 <p>第一步：采样。以每个结点为起点随机游走的方式获得一个序列。论文作者认为每个结点进行32~64次游走，每次游走的长度为40.</p>
 <p>第二步：训练Skip-gram模型。每一个结点对应一个embedding向量，然后使用基于分层Softmax框架的Skip-gram模型训练。通常窗口大小为21，即左右各10个。</p>
 <p>第三步：获取embedding映射表。</p>
@@ -299,18 +318,61 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 </div>
 <div id="node2vec-2016" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> node2vec-2016</h3>
+<p>相比于DeepWalk采用了不同的随机游走策略，形成序列，类似skip-gram方式生成节点embedding</p>
+<p>node2vec是为了学习到节点的同质性和结构相似性，那就先说下这两个
+同质性：节点跟周围节点Embedding相似
+结构相似性：图中相同结构的节点Embedding相似
+类似于广度优先遍历（BFS）和深度优先遍历（DFS）的方式生成节点序列，拿到的序列通过skip-gram，分别学习节点的结构性和同质性，另外通过超参权衡两种特性得到最终的学习结果。</p>
+<p>算法通过控制参数p和q可以来控制bfs和dfs模式，当p较小是，倾向于游走在t节点附近生成序列，当q较小是倾向于游走到相对于t节点更远的地方生成序列。<a href="https://zhuanlan.zhihu.com/p/553381564">刘下</a></p>
 </div>
 <div id="sdne" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> SDNE</h3>
+<p>使用自编码器进行学习的方式捕获一阶二阶的相似性</p>
 </div>
 <div id="line" class="section level3" number="1.2.4">
 <h3><span class="header-section-number">1.2.4</span> LINE</h3>
+<p>捕获节点的一阶和二阶相似度，分别求解，再将一阶二阶拼接在一起，作为节点的embedding.</p>
+<p>LINE的优化目标是一阶相似度和二阶相似度<a href="https://zhuanlan.zhihu.com/p/553381564">刘下</a>
+1、一阶相似度指两个直接相连节点的相似度，当没有边相连，相似度为0；当相连且权重很大时相似度很高。
+2、二阶相似度指邻居节点的相似度，即拥有相同邻居的节点被认为是相似的，如果有很多共有邻居节点且权重较大，则相似度很高。</p>
+<p>基于一阶相似度如何优化？
+首先定义了两个向量的联合概率分布为两个向量内积经过sigmoid的输出值（两个低维Embedding向量经过sigmoid规约到0-1之间的值）
+两个向量的经验分布可使用连接两个节点之间的edge的权重在全图中的权重占比
+如此，通过KL-divergence来计算两个分布之间差异，通过最小化KL-divergence即可达到优化embedding的效果，即(2)，通过对KL公式进行简化，即可得到式(3)</p>
+<p>公式2
+<span class="math display">\[
+O_1=d\left(\hat{p}_1(\cdot, \cdot), p_1(\cdot, \cdot)\right),
+\]</span>
+公式3</p>
+<p><span class="math display">\[
+O_1=-\sum_{(i, j) \in E} w_{i j} \log p_1\left(v_i, v_j\right)
+\]</span></p>
+<p>简单理解下，倘若graph中有两个节点，那么经验分布应该为1，联合概率分布优化后也应该为1，即两个向量内积应该趋于正无穷。另外一点，值得注意的是一阶相似性只用在无向图中。</p>
+<p>基于二阶相似度如何优化
+相较于一阶相似度，仍然使用KL-divergence分布之间的差异来优化embedding，是不过embedding的联合概率分布和经验分布的定义和计算方法有所改变
+联合概率为两个相连的向量相对于与其连接所有向量的占比，使用sofamax计算如式(4)
+经验分布为连接两个节点edge的权重在与其为出变的总权重占比</p>
+<p>其他同一阶相似度，使用kl-divergence计算差异即(5)，通过约简后如式(6)</p>
+<p>二阶相似度可用于计算有向图，另外如何融合一二阶向量的方法直接concat到一起，当然也可以使用其他方法。</p>
+<p>公式4</p>
+<p><span class="math display">\[
+p_2\left(v_j \mid v_i\right)=\frac{\exp \left(\vec{u}_j^{\prime T} \cdot \vec{u}_i\right)}{\sum_{k=1}^{|V|} \exp \left(\vec{u}_k^{\prime T} \cdot \vec{u}_i\right)},
+\]</span></p>
+<p>公式5
+<span class="math display">\[
+O_2=\sum_{i \in V} \lambda_i d\left(\hat{p}_2\left(\cdot \mid v_i\right), p_2\left(\cdot \mid v_i\right)\right)
+\]</span></p>
+<p>公式6</p>
+<p><span class="math display">\[
+O_2=-\sum_{(i, j) \in E} w_{i j} \log p_2\left(v_j \mid v_i\right)
+\]</span></p>
 </div>
 <div id="pagerank" class="section level3" number="1.2.5">
 <h3><span class="header-section-number">1.2.5</span> pagerank</h3>
 </div>
 <div id="struc2vec" class="section level3" number="1.2.6">
 <h3><span class="header-section-number">1.2.6</span> struc2vec</h3>
+<p>对图的结构信息进行捕获，在其结构重要性大于邻居重要性时，有较好的效果</p>
 </div>
 </div>
 <div id="图神经网络算法" class="section level2" number="1.3">
@@ -341,7 +403,9 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 <div id="损失函数" class="section level4" number="1.3.1.3">
 <h4><span class="header-section-number">1.3.1.3</span> 损失函数</h4>
 <p>GCN 是一个多层的图卷积神经网络，每一个卷积层仅处理一阶邻域信息，通过叠加若干卷积层可以实现多阶邻域的信息传递。 从输入层开始，前向传播经过图卷积层运算，然后经过softmax激活函数的运算得到预测分类概率分布。 softmax的作用是将卷积网络的输出的结果进行概率化，我直接将Softmax理解为依据公式运算出样本点的类别。 假设我们构造一个两层的 GCN，激活函数分别采用ReLU和Softmax，则整体的正向传播的公式为：</p>
-<p>Z=f(X, A)=( ( X W^{(0)}) W^{(1)})</p>
+<p><span class="math display">\[
+Z=f(X, A)=\operatorname{softmax}\left(\hat{A} \operatorname{ReLU}\left(\hat{A} X W^{(0)}\right) W^{(1)}\right)
+\]</span></p>
 <p>该模型实际是输入层+隐藏层（图卷积层，类似全连接层的作用）+SoftMax+输出层构成的，GCN模型可视化为：</p>
 <p><img src="figs/gcn4.png" /></p>
 <p>GCN输入一个图，通过若干层GCN每个node的特征从X变成了Z，但是，无论中间有多少层，node之间的连接关系，即邻接矩阵A，都是共享的。</p>
@@ -537,6 +601,14 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 <p>取代原来为每个节点独立训练embedding的方法（原来的transductive 直推式的框架只能对固定的图生成embedding<GCN>，transductive 方法在处理以前从未见过的数据时效果不佳），GraphSAGE采用采样和聚合的方法，是一个inductive（归纳式的框架，归纳式能够处理图中新增的节点，或者通过之前学习的图的知识，用于新图label 的推断上），能够同时利用节点特征信息和结构信息得到Graph Embedding的映射，并且能够高效地利用节点的属性信息对新节点生成embedding。可以同时学习每个节点邻域的拓扑结构以及节点特征在邻域中的分布。
 相比之前的方法，之前都是保存了映射后的结果（一次性的，只能学习已经存在的图，不记录转换的过程），而GraphSAGE保存了生成embedding的映射（学习了一个计算函数，泛化能力强），可扩展性更强，对于节点分类和链接预测问题的表现也比较好（动态图）。<a href="https://zhuanlan.zhihu.com/p/419827450">Brauch</a></p>
 </blockquote>
+<p>总结：</p>
+<p>提出归纳式（节点的局部信息和图的全局信息）的graph embedding方法，之前的graph embedding方法都是所有节点都在图中，对于没有看到过的节点是不能处理的，这种叫做直推式方法。</p>
+<p>而GraphSAGE这种归纳式的方法，可以对于没见过的节点也生成embedding。</p>
+<p>GraphSAGE不仅限于构建embedding，也通过聚合周围邻居节点的特征。</p>
+<p>1、通过聚合邻居节点或者全局信息，concat聚合信息和上一层度信息得到每一层的信息
+2、邻居节点采样，如果需要大于有的，直接采样，否则在邻居中重复采样
+3、对于聚合函数，目的是将周围邻居节点聚合成一个向量，由于图本身是没有顺序的，所以要求顺序或排列不变性，如mean、max，对于lstm，本身是有顺序的，通过输入节点的随机化能够使lstm适用于无序集合</p>
+<p>与GCN的不同之处： GCN需要图中的每个节点，如A和D矩阵，而GraphSAGE只需要知道邻居节点</p>
 </div>
 <div id="gat" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> GAT</h3>
@@ -550,29 +622,38 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 \]</span>
 目标节点特征是通过邻居特征与各自注意力系数相乘然后加权求和获得。为捕获更多信息，GAT 中还可以使用多头 attention，如下图10为论文中采用3个 attention头的特征聚合方式。</p>
 </div>
-<div id="han" class="section level3" number="1.3.4">
-<h3><span class="header-section-number">1.3.4</span> HAN</h3>
+<div id="esim" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> ESim</h3>
+<p>一种异构图嵌入方法，可以从多个元路径中捕获语义信息</p>
 </div>
-<div id="gtn" class="section level3" number="1.3.5">
-<h3><span class="header-section-number">1.3.5</span> GTN</h3>
+<div id="han" class="section level3" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> HAN</h3>
+<blockquote>
+<p>HAN是首次尝试研究基于注意力机制的异构图神经网络。将流行的多头自注意力机制用于异构图的元路径节点特征表示，然后通过语义级注意力加权汇总元路径注意力得到最终节点语义表示，其包含了节点特征和邻域结构特征。<a href="https://zhuanlan.zhihu.com/p/534554382">zhihu</a>
+基于层次注意力的异构图神经网络，包括节点级注意力和语义级注意力。具体而言，节点级注意力旨在了解节点与其基于元路径的邻居之间的重要性，而语义级注意力能够了解不同元路径的重要性。通过学习节点级和语义级注意力的重要性，可以充分考虑节点和元路径的重要性。然后，该模型可以通过分层聚合基于元路径的邻居的特征来生成节点嵌入。</p>
+</blockquote>
 </div>
-<div id="meatpath2vec" class="section level3" number="1.3.6">
-<h3><span class="header-section-number">1.3.6</span> meatpath2vec</h3>
+<div id="gtn" class="section level3" number="1.3.6">
+<h3><span class="header-section-number">1.3.6</span> GTN</h3>
 </div>
-<div id="gatne" class="section level3" number="1.3.7">
-<h3><span class="header-section-number">1.3.7</span> GATNE</h3>
+<div id="meatpath2vec" class="section level3" number="1.3.7">
+<h3><span class="header-section-number">1.3.7</span> meatpath2vec</h3>
+<p>一种异构图嵌入方法，该方法执行基于元路径的随机行走，并利用skip-gram图嵌入异构图</p>
 </div>
-<div id="bine" class="section level3" number="1.3.8">
-<h3><span class="header-section-number">1.3.8</span> BiNE</h3>
+<div id="gatne" class="section level3" number="1.3.8">
+<h3><span class="header-section-number">1.3.8</span> GATNE</h3>
 </div>
-<div id="sgcn" class="section level3" number="1.3.9">
-<h3><span class="header-section-number">1.3.9</span> SGCN</h3>
+<div id="bine" class="section level3" number="1.3.9">
+<h3><span class="header-section-number">1.3.9</span> BiNE</h3>
 </div>
-<div id="sigat" class="section level3" number="1.3.10">
-<h3><span class="header-section-number">1.3.10</span> SiGAT</h3>
+<div id="sgcn" class="section level3" number="1.3.10">
+<h3><span class="header-section-number">1.3.10</span> SGCN</h3>
 </div>
-<div id="sdgnn" class="section level3" number="1.3.11">
-<h3><span class="header-section-number">1.3.11</span> SDGNN</h3>
+<div id="sigat" class="section level3" number="1.3.11">
+<h3><span class="header-section-number">1.3.11</span> SiGAT</h3>
+</div>
+<div id="sdgnn" class="section level3" number="1.3.12">
+<h3><span class="header-section-number">1.3.12</span> SDGNN</h3>
 </div>
 </div>
 <div id="动态图" class="section level2" number="1.4">
