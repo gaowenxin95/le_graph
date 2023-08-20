@@ -553,6 +553,8 @@ RGCN是作为一个异构图的关系融合的一个简单方法，提供了一�
 
 ## 动态图
 
+参考：https://zhuanlan.zhihu.com/p/490456974
+
 ### DySAT
 
 ### Evolve
