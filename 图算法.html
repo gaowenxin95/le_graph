@@ -24,7 +24,7 @@
 <meta name="author" content="高文欣" />
 
 
-<meta name="date" content="2023-08-08" />
+<meta name="date" content="2023-08-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.11" data-path=""><a href="#同构图异构图"><i class="fa fa-check"></i><b>1.1.11</b> 同构图、异构图</a></li>
 <li class="chapter" data-level="1.1.12" data-path=""><a href="#图嵌入"><i class="fa fa-check"></i><b>1.1.12</b> 图嵌入</a></li>
 <li class="chapter" data-level="1.1.13" data-path=""><a href="#元路径"><i class="fa fa-check"></i><b>1.1.13</b> 元路径</a></li>
+<li class="chapter" data-level="1.1.14" data-path=""><a href="#动态图静态图"><i class="fa fa-check"></i><b>1.1.14</b> 动态图、静态图</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path=""><a href="#经典图嵌入方法"><i class="fa fa-check"></i><b>1.2</b> 经典图嵌入方法</a>
 <ul>
@@ -156,30 +157,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.5" data-path=""><a href="#pagerank"><i class="fa fa-check"></i><b>1.2.5</b> pagerank</a></li>
 <li class="chapter" data-level="1.2.6" data-path=""><a href="#struc2vec"><i class="fa fa-check"></i><b>1.2.6</b> struc2vec</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path=""><a href="#图神经网络算法"><i class="fa fa-check"></i><b>1.3</b> 图神经网络算法</a>
+<li class="chapter" data-level="1.3" data-path=""><a href="#同构图-图神经网络算法"><i class="fa fa-check"></i><b>1.3</b> 同构图-图神经网络算法</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path=""><a href="#gcn"><i class="fa fa-check"></i><b>1.3.1</b> GCN</a></li>
 <li class="chapter" data-level="1.3.2" data-path=""><a href="#graphsage"><i class="fa fa-check"></i><b>1.3.2</b> graphSAGE</a></li>
 <li class="chapter" data-level="1.3.3" data-path=""><a href="#gat"><i class="fa fa-check"></i><b>1.3.3</b> GAT</a></li>
-<li class="chapter" data-level="1.3.4" data-path=""><a href="#esim"><i class="fa fa-check"></i><b>1.3.4</b> ESim</a></li>
-<li class="chapter" data-level="1.3.5" data-path=""><a href="#han"><i class="fa fa-check"></i><b>1.3.5</b> HAN</a></li>
-<li class="chapter" data-level="1.3.6" data-path=""><a href="#gtn"><i class="fa fa-check"></i><b>1.3.6</b> GTN</a></li>
-<li class="chapter" data-level="1.3.7" data-path=""><a href="#meatpath2vec"><i class="fa fa-check"></i><b>1.3.7</b> meatpath2vec</a></li>
-<li class="chapter" data-level="1.3.8" data-path=""><a href="#gatne"><i class="fa fa-check"></i><b>1.3.8</b> GATNE</a></li>
-<li class="chapter" data-level="1.3.9" data-path=""><a href="#bine"><i class="fa fa-check"></i><b>1.3.9</b> BiNE</a></li>
-<li class="chapter" data-level="1.3.10" data-path=""><a href="#sgcn"><i class="fa fa-check"></i><b>1.3.10</b> SGCN</a></li>
-<li class="chapter" data-level="1.3.11" data-path=""><a href="#sigat"><i class="fa fa-check"></i><b>1.3.11</b> SiGAT</a></li>
-<li class="chapter" data-level="1.3.12" data-path=""><a href="#sdgnn"><i class="fa fa-check"></i><b>1.3.12</b> SDGNN</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path=""><a href="#动态图"><i class="fa fa-check"></i><b>1.4</b> 动态图</a>
+<li class="chapter" data-level="1.4" data-path=""><a href="#异构图"><i class="fa fa-check"></i><b>1.4</b> 异构图</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path=""><a href="#dysat"><i class="fa fa-check"></i><b>1.4.1</b> DySAT</a></li>
-<li class="chapter" data-level="1.4.2" data-path=""><a href="#evolve"><i class="fa fa-check"></i><b>1.4.2</b> Evolve</a></li>
-<li class="chapter" data-level="1.4.3" data-path=""><a href="#dgnn"><i class="fa fa-check"></i><b>1.4.3</b> DGNN</a></li>
-<li class="chapter" data-level="1.4.4" data-path=""><a href="#tgat"><i class="fa fa-check"></i><b>1.4.4</b> TGAT</a></li>
-<li class="chapter" data-level="1.4.5" data-path=""><a href="#hgnn"><i class="fa fa-check"></i><b>1.4.5</b> HGNN</a></li>
-<li class="chapter" data-level="1.4.6" data-path=""><a href="#dhgnn"><i class="fa fa-check"></i><b>1.4.6</b> DHGNN</a></li>
+<li class="chapter" data-level="1.4.1" data-path=""><a href="#rgcn"><i class="fa fa-check"></i><b>1.4.1</b> RGCN</a></li>
+<li class="chapter" data-level="1.4.2" data-path=""><a href="#esim"><i class="fa fa-check"></i><b>1.4.2</b> ESim</a></li>
+<li class="chapter" data-level="1.4.3" data-path=""><a href="#han"><i class="fa fa-check"></i><b>1.4.3</b> HAN</a></li>
+<li class="chapter" data-level="1.4.4" data-path=""><a href="#gtn"><i class="fa fa-check"></i><b>1.4.4</b> GTN</a></li>
+<li class="chapter" data-level="1.4.5" data-path=""><a href="#meatpath2vec"><i class="fa fa-check"></i><b>1.4.5</b> meatpath2vec</a></li>
+<li class="chapter" data-level="1.4.6" data-path=""><a href="#gatne"><i class="fa fa-check"></i><b>1.4.6</b> GATNE</a></li>
+<li class="chapter" data-level="1.4.7" data-path=""><a href="#bine"><i class="fa fa-check"></i><b>1.4.7</b> BiNE</a></li>
+<li class="chapter" data-level="1.4.8" data-path=""><a href="#sgcn"><i class="fa fa-check"></i><b>1.4.8</b> SGCN</a></li>
+<li class="chapter" data-level="1.4.9" data-path=""><a href="#sigat"><i class="fa fa-check"></i><b>1.4.9</b> SiGAT</a></li>
+<li class="chapter" data-level="1.4.10" data-path=""><a href="#sdgnn"><i class="fa fa-check"></i><b>1.4.10</b> SDGNN</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#动态图"><i class="fa fa-check"></i><b>1.5</b> 动态图</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path=""><a href="#dysat"><i class="fa fa-check"></i><b>1.5.1</b> DySAT</a></li>
+<li class="chapter" data-level="1.5.2" data-path=""><a href="#evolve"><i class="fa fa-check"></i><b>1.5.2</b> Evolve</a></li>
+<li class="chapter" data-level="1.5.3" data-path=""><a href="#dgnn"><i class="fa fa-check"></i><b>1.5.3</b> DGNN</a></li>
+<li class="chapter" data-level="1.5.4" data-path=""><a href="#tgat"><i class="fa fa-check"></i><b>1.5.4</b> TGAT</a></li>
+<li class="chapter" data-level="1.5.5" data-path=""><a href="#hgnn"><i class="fa fa-check"></i><b>1.5.5</b> HGNN</a></li>
+<li class="chapter" data-level="1.5.6" data-path=""><a href="#dhgnn"><i class="fa fa-check"></i><b>1.5.6</b> DHGNN</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path=""><a href="#二部图"><i class="fa fa-check"></i><b>1.6</b> 二部图</a></li>
+<li class="chapter" data-level="1.7" data-path=""><a href="#无监督节点表示学习"><i class="fa fa-check"></i><b>1.7</b> 无监督节点表示学习</a></li>
 </ul></li>
 </ul>
 
@@ -201,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">图算法学习笔记</h1>
 <p class="author"><em>高文欣</em></p>
-<p class="date"><em>2023-08-08</em></p>
+<p class="date"><em>2023-08-20</em></p>
 </div>
 <div id="图算法" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> 图算法</h1>
@@ -303,6 +310,15 @@ V是顶点集合，E是边的集合。<a href="https://blog.csdn.net/nuo_ss/arti
 <p>元路径 meta-path
 元路径是属于异构图的一个概念。在异构图中，两个节点可以通过不同的路径产生关联。在电商场景的异构图中，可以通过“买家-商家-买家”和“买家-设备-买家”连接两个不同的买家，而不同的路径则具有语义上的不同，元路径meta-path即用来表示连接两个实体的一条特定的路径。</p>
 </div>
+<div id="动态图静态图" class="section level3" number="1.1.14">
+<h3><span class="header-section-number">1.1.14</span> 动态图、静态图</h3>
+<blockquote>
+<p>静态图指的是图的节点和边都是固定的，不会随时间变化</p>
+</blockquote>
+<blockquote>
+<p>而实际上在现实世界中，图的节点和边往往都是动态变化的，边会动态增加（用户购买新的商品、用户关注另一个用户），节点会增加（新网页上线、新用户注册），节点的属性会变化（用户的属性会随时间变化）等。基于静态图去解决问题，虽然处理起来更简单，但不符合实际，预测效果也会大打折扣。边都是会动态变化的，会出现节点和边的动态增加、动态减少以及属性的动态变化。虽然动态图更符合实际，但因为要研究的目标是在图上动态变化的，可以想象研究难度会比静态图高不少</p>
+</blockquote>
+</div>
 </div>
 <div id="经典图嵌入方法" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> 经典图嵌入方法</h2>
@@ -375,8 +391,8 @@ O_2=-\sum_{(i, j) \in E} w_{i j} \log p_2\left(v_j \mid v_i\right)
 <p>对图的结构信息进行捕获，在其结构重要性大于邻居重要性时，有较好的效果</p>
 </div>
 </div>
-<div id="图神经网络算法" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> 图神经网络算法</h2>
+<div id="同构图-图神经网络算法" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> 同构图-图神经网络算法</h2>
 <div id="gcn" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> GCN</h3>
 <p>图神经网络算法的开山之作~</p>
@@ -622,66 +638,95 @@ Z=f(X, A)=\operatorname{softmax}\left(\hat{A} \operatorname{ReLU}\left(\hat{A} X
 \]</span>
 目标节点特征是通过邻居特征与各自注意力系数相乘然后加权求和获得。为捕获更多信息，GAT 中还可以使用多头 attention，如下图10为论文中采用3个 attention头的特征聚合方式。</p>
 </div>
-<div id="esim" class="section level3" number="1.3.4">
-<h3><span class="header-section-number">1.3.4</span> ESim</h3>
+</div>
+<div id="异构图" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> 异构图</h2>
+<div id="rgcn" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> RGCN</h3>
+<p>一个类别给弄一个矩阵算embedding，一个关系对一整张图共用一个矩阵。
+结构如下</p>
+<p><img src="figs/rgcn1.png" /></p>
+<p><span class="math display">\[
+h_i^{(l+1)}=\sigma\left(\sum_{r \in \mathcal{R}} \sum_{j \in \mathcal{N}_i^r} \frac{1}{c_{i, r}} W_r^{(l)} h_j^{(l)}+W_0^{(l)} h_i^{(l)}\right)
+\]</span>
+，R为关系结合，N为邻居点集合，c为一个常量（正则化系数）,RGCN的参数都在模型参数
+中，它没有用度矩阵D及邻接矩阵A作为边的权重的，而是在模型中参数自学,一步步看这个式子，上式是在 <span class="math inline">\(h_i\)</span> 这个向量上做的信息聚合，为第 <span class="math inline">\(l\)</span> 层，以 <span class="math inline">\(h_i^l\)</span> 表示。这样一个向 量首先用一个矩阵 <span class="math inline">\(W_0^l\)</span> 来将其自身做embedding后，加上本层网络中所有邻居节点所表示的向量 <span class="math inline">\(h_j^l\)</span> 乘上其相应参数矩阵 <span class="math inline">\(W_r^l\)</span> 之和（这里的 <span class="math inline">\(r\)</span> 由 <span class="math inline">\(j\)</span> 节点与 <span class="math inline">\(i\)</span> 节点连接的关系决定），最后通过一 个激活函数 <span class="math inline">\(\sigma\)</span> 来获得下一层的embedding。这里的 <span class="math inline">\(c\)</span> 是一个正则化参数。
+这样硬train一发真的管用吗？还真管用了，但很遗憾没有完全管用。
+问题的来源正是参数矩阵 <span class="math inline">\(W\)</span> ，这个稠密矩阵事实上完全由节点向量长度与特征个数决定，一旦 relation过多，文中指出模型就会出现过拟合稀缺边的情况。即一旦某类边变的稀有，他们很容易 在决定最终label时起到关键作用。作者给出了两张解决方案，这两者也很直接，都是直接拿 <span class="math inline">\(W\)</span> 开刀:
+- basis decomposition：这一方案退回了原来GCN的方式，但将各个relation之间的weights共 享，而对于每一个关系只有唯一的一个参数 <span class="math inline">\(a_{r b}\)</span> ，写作 <span class="math inline">\(W_r^{(l)}=\sum_{b=1}^B a_{r b}^{(l)} V_b^{(l)}\)</span>
+- block-diagonal-decomposition: 上一种方案显得将模型的灵活度收缩的过窄，那么有无折中 的办法呢? 这里作者将 <span class="math inline">\(W\)</span> 矩阵分块对角化， <span class="math inline">\(Q_{b r}\)</span> 即是分块矩阵，其数目为一个超参数，由人设 定。这使得参数减少的同时获得了一定的可变性，写作 <span class="math inline">\(W_r^{(l)}=\bigoplus_{b=1}^B Q_{b r}^{(l)}\)</span>
+本文使用的损失函数也是常规的交叉熵函数，先看下一篇，最后再总结。<a href="https://zhuanlan.zhihu.com/p/395221075">知乎</a></p>
+<p>提出了一个异构图中多关系融合的一个方式（就是不同关系分别做融合，然后叠加处理，得到node表示）
+降低多关系引起的参数剧增，提出了因子分解以及多关系参数共享的方式。
+对比一下GCN，GCN是采用度矩阵D及邻接矩阵A作为一个加权求和的特征融合，RGCN并没有用度矩阵D及邻接矩阵A作为边的权重的，而是把这部分都放在模型中参数自学。</p>
+<p>RGCN是作为一个异构图的关系融合的一个简单方法，提供了一个多关系处理的方法。现在来看，RGCN肯定是不够看了，起码能想到优化的点就是，你都把权重都放参数里了，那你得有个attention是不是更好呢？ 说到这，那HAN就来了，下回就看看HAN。</p>
+</div>
+<div id="esim" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> ESim</h3>
 <p>一种异构图嵌入方法，可以从多个元路径中捕获语义信息</p>
 </div>
-<div id="han" class="section level3" number="1.3.5">
-<h3><span class="header-section-number">1.3.5</span> HAN</h3>
+<div id="han" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> HAN</h3>
 <blockquote>
 <p>HAN是首次尝试研究基于注意力机制的异构图神经网络。将流行的多头自注意力机制用于异构图的元路径节点特征表示，然后通过语义级注意力加权汇总元路径注意力得到最终节点语义表示，其包含了节点特征和邻域结构特征。<a href="https://zhuanlan.zhihu.com/p/534554382">zhihu</a>
 基于层次注意力的异构图神经网络，包括节点级注意力和语义级注意力。具体而言，节点级注意力旨在了解节点与其基于元路径的邻居之间的重要性，而语义级注意力能够了解不同元路径的重要性。通过学习节点级和语义级注意力的重要性，可以充分考虑节点和元路径的重要性。然后，该模型可以通过分层聚合基于元路径的邻居的特征来生成节点嵌入。</p>
 </blockquote>
 </div>
-<div id="gtn" class="section level3" number="1.3.6">
-<h3><span class="header-section-number">1.3.6</span> GTN</h3>
+<div id="gtn" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> GTN</h3>
 </div>
-<div id="meatpath2vec" class="section level3" number="1.3.7">
-<h3><span class="header-section-number">1.3.7</span> meatpath2vec</h3>
+<div id="meatpath2vec" class="section level3" number="1.4.5">
+<h3><span class="header-section-number">1.4.5</span> meatpath2vec</h3>
 <p>一种异构图嵌入方法，该方法执行基于元路径的随机行走，并利用skip-gram图嵌入异构图</p>
 </div>
-<div id="gatne" class="section level3" number="1.3.8">
-<h3><span class="header-section-number">1.3.8</span> GATNE</h3>
+<div id="gatne" class="section level3" number="1.4.6">
+<h3><span class="header-section-number">1.4.6</span> GATNE</h3>
 </div>
-<div id="bine" class="section level3" number="1.3.9">
-<h3><span class="header-section-number">1.3.9</span> BiNE</h3>
+<div id="bine" class="section level3" number="1.4.7">
+<h3><span class="header-section-number">1.4.7</span> BiNE</h3>
 </div>
-<div id="sgcn" class="section level3" number="1.3.10">
-<h3><span class="header-section-number">1.3.10</span> SGCN</h3>
+<div id="sgcn" class="section level3" number="1.4.8">
+<h3><span class="header-section-number">1.4.8</span> SGCN</h3>
 </div>
-<div id="sigat" class="section level3" number="1.3.11">
-<h3><span class="header-section-number">1.3.11</span> SiGAT</h3>
+<div id="sigat" class="section level3" number="1.4.9">
+<h3><span class="header-section-number">1.4.9</span> SiGAT</h3>
 </div>
-<div id="sdgnn" class="section level3" number="1.3.12">
-<h3><span class="header-section-number">1.3.12</span> SDGNN</h3>
-</div>
-</div>
-<div id="动态图" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> 动态图</h2>
-<div id="dysat" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> DySAT</h3>
-</div>
-<div id="evolve" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> Evolve</h3>
-<div id="evolve-o" class="section level4" number="1.4.2.1">
-<h4><span class="header-section-number">1.4.2.1</span> Evolve-O</h4>
-</div>
-<div id="evolve-h" class="section level4" number="1.4.2.2">
-<h4><span class="header-section-number">1.4.2.2</span> Evolve-H</h4>
+<div id="sdgnn" class="section level3" number="1.4.10">
+<h3><span class="header-section-number">1.4.10</span> SDGNN</h3>
 </div>
 </div>
-<div id="dgnn" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> DGNN</h3>
+<div id="动态图" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> 动态图</h2>
+<div id="dysat" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> DySAT</h3>
 </div>
-<div id="tgat" class="section level3" number="1.4.4">
-<h3><span class="header-section-number">1.4.4</span> TGAT</h3>
+<div id="evolve" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Evolve</h3>
+<div id="evolve-o" class="section level4" number="1.5.2.1">
+<h4><span class="header-section-number">1.5.2.1</span> Evolve-O</h4>
 </div>
-<div id="hgnn" class="section level3" number="1.4.5">
-<h3><span class="header-section-number">1.4.5</span> HGNN</h3>
+<div id="evolve-h" class="section level4" number="1.5.2.2">
+<h4><span class="header-section-number">1.5.2.2</span> Evolve-H</h4>
 </div>
-<div id="dhgnn" class="section level3" number="1.4.6">
-<h3><span class="header-section-number">1.4.6</span> DHGNN</h3>
 </div>
+<div id="dgnn" class="section level3" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> DGNN</h3>
+</div>
+<div id="tgat" class="section level3" number="1.5.4">
+<h3><span class="header-section-number">1.5.4</span> TGAT</h3>
+</div>
+<div id="hgnn" class="section level3" number="1.5.5">
+<h3><span class="header-section-number">1.5.5</span> HGNN</h3>
+</div>
+<div id="dhgnn" class="section level3" number="1.5.6">
+<h3><span class="header-section-number">1.5.6</span> DHGNN</h3>
+</div>
+</div>
+<div id="二部图" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> 二部图</h2>
+</div>
+<div id="无监督节点表示学习" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> 无监督节点表示学习</h2>
 </div>
 </div>
             </section>
