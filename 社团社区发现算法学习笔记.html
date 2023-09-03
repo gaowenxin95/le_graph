@@ -24,7 +24,7 @@
 <meta name="author" content="高文欣" />
 
 
-<meta name="date" content="2023-08-26" />
+<meta name="date" content="2023-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.2" data-path=""><a href="#实现过程"><i class="fa fa-check"></i><b>1.3.2</b> 实现过程</a></li>
 <li class="chapter" data-level="1.3.3" data-path=""><a href="#实现"><i class="fa fa-check"></i><b>1.3.3</b> 实现</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path=""><a href="#lap"><i class="fa fa-check"></i><b>1.4</b> LAP</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#lpa"><i class="fa fa-check"></i><b>1.4</b> LPA</a></li>
 <li class="chapter" data-level="1.5" data-path=""><a href="#slpa"><i class="fa fa-check"></i><b>1.5</b> SLPA</a></li>
 <li class="chapter" data-level="1.6" data-path=""><a href="#hanp"><i class="fa fa-check"></i><b>1.6</b> HANP</a></li>
 <li class="chapter" data-level="1.7" data-path=""><a href="#gn"><i class="fa fa-check"></i><b>1.7</b> GN</a></li>
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">社团算法学习笔记</h1>
 <p class="author"><em>高文欣</em></p>
-<p class="date"><em>2023-08-26</em></p>
+<p class="date"><em>2023-09-03</em></p>
 </div>
 <div id="社团社区发现算法学习笔记" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> 社团/社区发现算法学习笔记</h1>
@@ -249,8 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="figs/louvain1.png" /></p>
 </div>
 </div>
-<div id="lap" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> LAP</h2>
+<div id="lpa" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> LPA</h2>
 <p>标签传播算法</p>
 <p>标签传播算法(LPA)是一种迭代算法，通过在数据集中传播标签，将标签分配给未标记的点。该算法由Xiaojin Zhu和Zoubin Ghahramani于2002年首次提出。LPA属于转换学习，因为我们要预测已经给出的未标记数据点的标签</p>
 <ol style="list-style-type: decimal">
@@ -269,6 +269,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="gn" class="section level2" number="1.7">
 <h2><span class="header-section-number">1.7</span> GN</h2>
+<p>Girvan-Newman算法</p>
+<p>GN算法是一种凝聚型的社区结构发现算法。该算法根据网络中社区内部高内聚、社区之间低内聚的特点，逐步去除社区之间的边，取得相对内聚的社区结构。算法用<strong>边介数</strong>的概念来探测边的位置，某边的边介数定义为网络上所有顶点之间的最短路径通过该边的次数。由定义可知，如果一条边连接两个社区，那么这两个社团节点之间的最短路径通过该边的次数就会最多，相应的边介数最大。如果删除该边，那么两个社团就会分割开。GN算就就是基于此思想反复计算当前网络的最短路径，计算每条边的边介数，删除边介数最大的边。最后在一定条件下，算法停止，即可得到网络的社区结构。<a href="https://www.cnblogs.com/idealing/articles/3179563.html">idealing</a></p>
 </div>
 <div id="fn" class="section level2" number="1.8">
 <h2><span class="header-section-number">1.8</span> FN</h2>
